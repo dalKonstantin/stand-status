@@ -1,6 +1,5 @@
-use std::net::Ipv4Addr;
-
 use serde::Deserialize;
+use std::net::Ipv4Addr;
 
 #[derive(Deserialize, Debug)]
 pub struct Host {
