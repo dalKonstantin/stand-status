@@ -21,5 +21,5 @@ fn main() {
 
     let config: AppConfig = toml::from_str(toml_str).unwrap();
     println!("{:#?}", config);
-    println!("Hello, world!");
+    print!("{:?}", args);
 }
