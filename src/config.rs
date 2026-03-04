@@ -1,9 +1,14 @@
+use std::net::Ipv4Addr;
+
 use serde::Deserialize;
+
 #[derive(Deserialize, Debug)]
 pub struct Host {
     name: String,
+    ip: Ipv4Addr,
 }
 
+#[derive(Deserialize, Debug)]
 pub struct AppConfig {
-    hosts: Vec<Host>,
+    pub hosts: Vec<Host>,
 }
