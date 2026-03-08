@@ -1,12 +1,19 @@
+use std::process::Stdio;
 use std::{net::Ipv4Addr, process::Command};
 
 pub fn ping_host(host: Ipv4Addr) -> bool {
     let host_string = host.to_string();
-    let mut child = Command::new("ping")
+
+    let status = Command::new("ping")
         .args(["-c", "1", "-W", "1", &host_string])
-        .status()
-        .expect("Failed to execute ping");
-    if child.success() { true } else { false }
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .status();
+
+    match status {
+        Ok(s) => s.success(),
+        Err(_) => false,
+    }
 }
 
 #[cfg(test)]

@@ -3,8 +3,10 @@ use std::net::Ipv4Addr;
 
 #[derive(Deserialize, Debug)]
 pub struct Host {
-    name: String,
-    ip: Ipv4Addr,
+    pub name: String,
+    pub ip: Ipv4Addr,
+    #[serde(skip_deserializing)]
+    pub is_online: bool,
 }
 
 #[derive(Deserialize, Debug)]
