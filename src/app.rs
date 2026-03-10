@@ -141,6 +141,7 @@ impl Widget for &App {
         Paragraph::new("stand status")
             .block(Block::bordered().green())
             .green()
+            .bg(Color::Black)
             .render(chunks[0], buf);
 
         let rows: Vec<Row> = self
